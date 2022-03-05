@@ -1,7 +1,14 @@
 const mongoose=require("mongoose");
 const validator=require("validator")
-const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/mydatabse'
+require('dotenv')
 
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/mydatabse'
+mongoose.connect(MONGO_URL)
+.then(()=>{
+    console.log('connection');
+}).catch((err)=>{
+    console.log(err);
+})
 const menSchema=new mongoose.Schema({
     name:{
         type:String,

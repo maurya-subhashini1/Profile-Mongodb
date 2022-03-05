@@ -22,6 +22,7 @@ const Get_Profile=async(req,res)=>{
         res.send(await Usersdetail.find({}))
         // res.status(201).send(getMens)
     }catch(err){
+        console.log(err);
         res.status(400).send(err)
     }
 }
